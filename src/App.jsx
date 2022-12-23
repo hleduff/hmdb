@@ -1,36 +1,23 @@
 import './App.css';
 
-import { useState } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import reactLogo from './assets/react.svg';
+import { ErrorPage } from './components/ErrorPage';
+import { Home } from './components/Home';
+import { Movie } from './components/Movie';
 
-function App() {
-    const [count, setCount] = useState(0);
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Home />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: 'movie/:movieId',
+        element: <Movie />,
+    },
+]);
 
-    return (
-        <div className="App">
-            <div>
-                <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-                    <img src="/vite.svg" className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((prev) => prev + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
-        </div>
-    );
-}
+const App = () => <RouterProvider router={router} />;
 
 export default App;
