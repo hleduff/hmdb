@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { Layout } from '../../components/Layout';
 import { usePopularMovies } from '../../hooks';
 import styles from './style.module.css';
 
@@ -7,21 +8,20 @@ export const Home = () => {
     const { data, error, loaded } = usePopularMovies();
 
     if (error) {
-        return <div>Error: {error.message}</div>;
+        return <Layout>Error: {error.message}</Layout>;
     } else if (!loaded) {
-        return <div>Loading...</div>;
+        return <Layout>Loading...</Layout>;
     } else {
         return (
-            <div className={styles.root}>
-                <h1>Home page</h1>
-                <ul>
+            <Layout>
+                <div className={styles.grid}>
                     {data.map((movie) => (
-                        <li key={movie.id}>
+                        <div key={movie.id}>
                             <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
-                        </li>
+                        </div>
                     ))}
-                </ul>
-            </div>
+                </div>
+            </Layout>
         );
     }
 };

@@ -1,16 +1,14 @@
-import './App.css';
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { ErrorPage } from './components/ErrorPage';
-import { Home } from './components/Home';
-import { Movie } from './components/Movie';
+import { Error } from './views/Error';
+import { Home } from './views/Home';
+import { Movie } from './views/Movie';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Home />,
-        errorElement: <ErrorPage />,
+        errorElement: <Error />,
     },
     {
         path: 'movie/:movieId',

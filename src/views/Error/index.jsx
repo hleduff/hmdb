@@ -1,17 +1,18 @@
 import { useRouteError } from 'react-router-dom';
 
+import { Layout } from '../../components/Layout';
 import styles from './style.module.css';
 
-export const ErrorPage = () => {
+export const Error = () => {
     const error = useRouteError();
 
     return (
-        <div className={styles.root}>
-            <h1>Oops!</h1>
+        <Layout className={styles.root}>
+            <h2>Oops!</h2>
             <p>Sorry, an unexpected error has occurred.</p>
             <p>
-                <i>{error.statusText || error.message}</i>
+                <i>{error.statusText || error.message}.</i>
             </p>
-        </div>
+        </Layout>
     );
 };
