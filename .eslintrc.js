@@ -63,7 +63,7 @@ module.exports = {
         ],
         'import/prefer-default-export': 'off',
         'class-methods-use-this': 'off',
-        'nonblock-statement-body-position': ['error', 'below'],
+        'nonblock-statement-body-position': ['error', 'beside'],
         camelcase: [
             'error',
             {
