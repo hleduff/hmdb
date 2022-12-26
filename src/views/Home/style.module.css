@@ -1,3 +1,13 @@
 .root {
-    color: lightblue;
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+}
+
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+    gap: 1.6rem;
 }

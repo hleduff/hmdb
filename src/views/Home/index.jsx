@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
-
-import { Layout, Loader, Message } from '../../components';
+import { CardMovie, Layout, Loader, Message } from '../../components';
 import { usePopularMovies } from '../../hooks';
 import styles from './style.module.css';
 
@@ -22,12 +20,13 @@ export const Home = () => {
     } else {
         return (
             <Layout>
-                <div className={styles.grid}>
-                    {data.map((movie) => (
-                        <div key={movie.id}>
-                            <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
-                        </div>
-                    ))}
+                <div className={styles.root}>
+                    <h2>Popular movies</h2>
+                    <div className={styles.grid}>
+                        {data.map((movie) => (
+                            <CardMovie key={movie.id} movie={movie} />
+                        ))}
+                    </div>
                 </div>
             </Layout>
         );
