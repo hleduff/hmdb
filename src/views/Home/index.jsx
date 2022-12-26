@@ -20,13 +20,11 @@ export const Home = () => {
     } else {
         return (
             <Layout>
-                <div className={styles.root}>
-                    <h2>Popular movies</h2>
-                    <div className={styles.grid}>
-                        {data.map((movie) => (
-                            <CardMovie key={movie.id} movie={movie} />
-                        ))}
-                    </div>
+                <h2>Popular movies</h2>
+                <div className={styles.grid}>
+                    {data.map((movie) => (
+                        <CardMovie key={movie.id} movie={movie} />
+                    ))}
                 </div>
             </Layout>
         );
