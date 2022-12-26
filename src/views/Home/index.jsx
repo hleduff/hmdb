@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { Layout } from '../../components/Layout';
+import { Message } from '../../components/Message';
 import { usePopularMovies } from '../../hooks';
 import styles from './style.module.css';
 
@@ -8,7 +9,11 @@ export const Home = () => {
     const { data, error, loaded } = usePopularMovies();
 
     if (error) {
-        return <Layout>Error: {error.message}</Layout>;
+        return (
+            <Layout>
+                <Message isError={true} text={`Error: ${error.message}`} />
+            </Layout>
+        );
     } else if (!loaded) {
         return <Layout>Loading...</Layout>;
     } else {

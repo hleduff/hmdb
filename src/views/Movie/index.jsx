@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 
 import { Layout } from '../../components/Layout';
+import { Message } from '../../components/Message';
 import { useMovie } from '../../hooks';
 import styles from './style.module.css';
 
@@ -9,7 +10,11 @@ export const Movie = () => {
     const { data, error, loaded } = useMovie(movieId);
 
     if (error) {
-        return <Layout>Error: {error.message}</Layout>;
+        return (
+            <Layout>
+                <Message isError={true} text={`Error: ${error.message}`} />
+            </Layout>
+        );
     } else if (!loaded) {
         return <Layout>Loading...</Layout>;
     } else {
