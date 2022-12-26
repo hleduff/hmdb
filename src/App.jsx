@@ -1,8 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { Home } from './views/Home';
-import { Movie } from './views/Movie';
-import { NotFound } from './views/NotFound';
+import { Home, Movie, NotFound } from './views';
 
 const router = createBrowserRouter([
     {

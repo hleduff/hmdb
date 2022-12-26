@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { Layout } from '../../components/Layout';
-import { Message } from '../../components/Message';
+import { Layout, Message } from '../../components';
 import { usePopularMovies } from '../../hooks';
 import styles from './style.module.css';
 

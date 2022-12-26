@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 
-import { Layout } from '../../components/Layout';
-import { Message } from '../../components/Message';
+import { Layout, Message } from '../../components';
 import { useMovie } from '../../hooks';
 import styles from './style.module.css';
 
