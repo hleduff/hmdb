@@ -1,14 +1,14 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { Error } from './views/Error';
 import { Home } from './views/Home';
 import { Movie } from './views/Movie';
+import { NotFound } from './views/NotFound';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Home />,
-        errorElement: <Error />,
+        errorElement: <NotFound />,
     },
     {
         path: 'movie/:movieId',
