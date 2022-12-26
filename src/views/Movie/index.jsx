@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 
-import { Layout, Message } from '../../components';
+import { Layout, Loader, Message } from '../../components';
 import { useMovie } from '../../hooks';
 import styles from './style.module.css';
 
@@ -15,7 +15,11 @@ export const Movie = () => {
             </Layout>
         );
     } else if (!loaded) {
-        return <Layout>Loading...</Layout>;
+        return (
+            <Layout>
+                <Loader />
+            </Layout>
+        );
     } else {
         return (
             <Layout className={styles.root}>

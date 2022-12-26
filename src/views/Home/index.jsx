@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { Layout, Message } from '../../components';
+import { Layout, Loader, Message } from '../../components';
 import { usePopularMovies } from '../../hooks';
 import styles from './style.module.css';
 
@@ -14,7 +14,11 @@ export const Home = () => {
             </Layout>
         );
     } else if (!loaded) {
-        return <Layout>Loading...</Layout>;
+        return (
+            <Layout>
+                <Loader />
+            </Layout>
+        );
     } else {
         return (
             <Layout>
