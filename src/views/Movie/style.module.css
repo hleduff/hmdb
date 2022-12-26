@@ -1,3 +1,26 @@
-.root {
-    color: lightgreen;
+.movie {
+    display: flex;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 599px) {
+    .movie {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 600px) {
+    .poster {
+        max-width: 30vw;
+    }
+
+    .info {
+        padding-left: 1.6rem;
+    }
 }

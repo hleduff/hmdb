@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import { Layout, Loader, Message } from '../../components';
 import { useMovie } from '../../hooks';
+import { getImage } from '../../utils/utils';
 import styles from './style.module.css';
 
 export const Movie = () => {
@@ -22,9 +23,30 @@ export const Movie = () => {
         );
     } else {
         return (
-            <Layout className={styles.root}>
-                <h1>{data.title}</h1>
-                <Link to={'/'}>&lt; Back</Link>
+            <Layout>
+                <div className={styles.movie}>
+                    <div className={styles.poster}>
+                        <img
+                            className={styles.poster}
+                            src={getImage(data.poster_path)}
+                            alt={`Poster for ${data.title}`}
+                        />
+                    </div>
+                    <div className={styles.info}>
+                        <div className={styles.header}>
+                            <h2>{data.title}</h2>
+                            <Link to={'/'}>&times;</Link>
+                        </div>
+                        <p>
+                            <i>{data.original_title}</i>
+                        </p>
+                        <dl>
+                            <dt>Synopsis:</dt>
+                            <dd>{data.overview}</dd>
+                        </dl>
+                        <p>Rating: {data.vote_average}</p>
+                    </div>
+                </div>
             </Layout>
         );
     }
