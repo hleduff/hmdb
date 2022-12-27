@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,900;1,400&display=swap');
 
 :root {
     --main: #20e08b;
+    --green: #66cc32;
+    --yellow: #ffcc32;
+    --red: #ff0100;
     --dark-grey: #1b2634;
     --medium-grey: #243340;
     --light-grey: #3a4956;
