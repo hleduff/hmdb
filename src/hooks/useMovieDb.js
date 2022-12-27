@@ -31,7 +31,7 @@ export const useMovie = (id) => {
             .then((res) => setData(res.data))
             .catch((err) => setError(err.message))
             .finally(() => setLoaded(true));
-    }, []);
+    }, [id]);
 
     return { data, error, loaded };
 };
@@ -47,7 +47,7 @@ export const useMovieCredits = (id) => {
             .then((res) => setData(res.data))
             .catch((err) => setError(err.message))
             .finally(() => setLoaded(true));
-    }, []);
+    }, [id]);
 
     return { data, error, loaded };
 };
@@ -63,7 +63,7 @@ export const useRecommendations = (id) => {
             .then((res) => setData(res.data.results.slice(0, 10)))
             .catch((err) => setError(err.message))
             .finally(() => setLoaded(true));
-    }, []);
+    }, [id]);
 
     return { data, error, loaded };
 };
