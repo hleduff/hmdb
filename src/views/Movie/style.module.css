@@ -32,7 +32,7 @@
     padding-bottom: 1.6rem;
 }
 
-.poster {
+.posterImg {
     width: 100%;
     height: auto;
 }
@@ -104,7 +104,8 @@
 
 @media (min-width: 480px) {
     .poster {
-        max-width: 30vw;
+        width: 30vw;
+        flex-shrink: 0;
     }
 
     .info {

@@ -38,7 +38,7 @@ export const Movie = () => {
                     <div className={styles.movie}>
                         <div className={styles.poster}>
                             <img
-                                className={styles.poster}
+                                className={styles.posterImg}
                                 src={getImage(data.poster_path)}
                                 alt={`Poster for ${data.title}`}
                             />
