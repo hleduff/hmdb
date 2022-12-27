@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 
-import { Layout, Loader, Message } from '../../components';
-import { useMovie, useMovieCredits } from '../../hooks';
+import { Layout, Loader, Message, MovieCarousel } from '../../components';
+import { useMovie, useMovieCredits, useRecommendations } from '../../hooks';
 import {
     getImage,
     getMovieLength,
@@ -14,6 +14,7 @@ export const Movie = () => {
     const { movieId } = useParams();
     const { data, error, loaded } = useMovie(movieId);
     const { data: credits } = useMovieCredits(movieId);
+    const { data: recommendations } = useRecommendations(movieId);
 
     if (error) {
         return (
@@ -69,9 +70,9 @@ export const Movie = () => {
                                 <p>
                                     <b>Director:</b>{' '}
                                     {
-                                        credits.crew.find(
+                                        credits.crew?.find(
                                             (element) => element.job === 'Director',
-                                        ).name
+                                        )?.name
                                     }
                                 </p>
                             )}
@@ -97,6 +98,12 @@ export const Movie = () => {
                             </p>
                         </div>
                     </div>
+                    {recommendations && (
+                        <section>
+                            <h3>You might also like…</h3>
+                            <MovieCarousel movies={recommendations} />
+                        </section>
+                    )}
                 </div>
             </Layout>
         );

@@ -51,3 +51,19 @@ export const useMovieCredits = (id) => {
 
     return { data, error, loaded };
 };
+
+export const useRecommendations = (id) => {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState('');
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        axios
+            .get(`${URL_API}/movie/${id}/recommendations?api_key=${API_KEY}`)
+            .then((res) => setData(res.data.results.slice(0, 10)))
+            .catch((err) => setError(err.message))
+            .finally(() => setLoaded(true));
+    }, []);
+
+    return { data, error, loaded };
+};
