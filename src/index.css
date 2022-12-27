@@ -31,10 +31,11 @@ body {
 a {
     color: var(--white);
     text-decoration: inherit;
-    transform: color 200ms ease;
+    transition: color 200ms ease;
 }
+
 a:hover {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 b,
