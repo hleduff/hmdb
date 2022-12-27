@@ -8,7 +8,8 @@
     --dark-grey: #1b2634;
     --medium-grey: #243340;
     --light-grey: #3a4956;
-    --white: #fff;
+    --neutral-grey: #999;
+    --white: #f9f9f9;
 
     --header-height: 6rem;
 
@@ -49,6 +50,12 @@ strong {
 i,
 em {
     font-style: italic;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 @media (prefers-color-scheme: light) {

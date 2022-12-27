@@ -35,3 +35,19 @@ export const useMovie = (id) => {
 
     return { data, error, loaded };
 };
+
+export const useMovieCredits = (id) => {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState('');
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        axios
+            .get(`${URL_API}/movie/${id}/credits?api_key=${API_KEY}`)
+            .then((res) => setData(res.data))
+            .catch((err) => setError(err.message))
+            .finally(() => setLoaded(true));
+    }, []);
+
+    return { data, error, loaded };
+};
