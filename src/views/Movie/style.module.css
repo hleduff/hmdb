@@ -112,3 +112,9 @@
         padding-left: 1.6rem;
     }
 }
+
+@media (min-width: 960px) {
+    .poster {
+        width: 20vw;
+    }
+}
