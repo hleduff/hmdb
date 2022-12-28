@@ -3,7 +3,7 @@ import { usePopularMovies } from '../../hooks';
 import styles from './style.module.css';
 
 export const Home = () => {
-    const { data, error, loaded } = usePopularMovies();
+    const { movies, error, loading } = usePopularMovies();
 
     if (error) {
         return (
@@ -11,7 +11,7 @@ export const Home = () => {
                 <Message isError={true} text={`Error: ${error.message}`} />
             </Layout>
         );
-    } else if (!loaded) {
+    } else if (loading) {
         return (
             <Layout>
                 <Loader />
@@ -22,7 +22,7 @@ export const Home = () => {
             <Layout>
                 <h2>Popular movies</h2>
                 <div className={styles.grid}>
-                    {data.map((movie) => (
+                    {movies.map((movie) => (
                         <CardMovie key={movie.id} movie={movie} />
                     ))}
                 </div>
