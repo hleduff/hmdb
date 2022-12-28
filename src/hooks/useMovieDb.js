@@ -1,8 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const URL_API = import.meta.env.VITE_URL_API;
-const API_KEY = import.meta.env.VITE_API_KEY;
+const client = axios.create({
+    baseURL: import.meta.env.VITE_URL_API,
+    params: {
+        api_key: import.meta.env.VITE_API_KEY,
+    },
+});
 
 export const usePopularMovies = () => {
     const [data, setData] = useState(null);
@@ -10,8 +14,8 @@ export const usePopularMovies = () => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        axios
-            .get(`${URL_API}/movie/popular?api_key=${API_KEY}`)
+        client
+            .get(`/movie/popular`)
             .then((res) => setData(res.data.results))
             .catch((err) => setError(err.message))
             .finally(() => setLoaded(true));
@@ -26,8 +30,8 @@ export const useMovie = (id) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        axios
-            .get(`${URL_API}/movie/${id}?api_key=${API_KEY}`)
+        client
+            .get(`/movie/${id}`)
             .then((res) => setData(res.data))
             .catch((err) => setError(err.message))
             .finally(() => setLoaded(true));
@@ -42,8 +46,8 @@ export const useMovieCredits = (id) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        axios
-            .get(`${URL_API}/movie/${id}/credits?api_key=${API_KEY}`)
+        client
+            .get(`/movie/${id}/credits`)
             .then((res) => setData(res.data))
             .catch((err) => setError(err.message))
             .finally(() => setLoaded(true));
@@ -58,8 +62,8 @@ export const useRecommendations = (id) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        axios
-            .get(`${URL_API}/movie/${id}/recommendations?api_key=${API_KEY}`)
+        client
+            .get(`/movie/${id}/recommendations`)
             .then((res) => setData(res.data.results.slice(0, 10)))
             .catch((err) => setError(err.message))
             .finally(() => setLoaded(true));
