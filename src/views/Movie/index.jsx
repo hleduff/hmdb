@@ -66,7 +66,7 @@ export const Movie = () => {
                                     <li key={genre.id}>{genre.name}</li>
                                 ))}
                             </ul>
-                            {credits && (
+                            {credits ? (
                                 <p>
                                     <b>Director:</b>{' '}
                                     {
@@ -75,7 +75,7 @@ export const Movie = () => {
                                         )?.name
                                     }
                                 </p>
-                            )}
+                            ) : null}
                             <p>
                                 <b>Summary:</b> {data.overview}
                             </p>
@@ -98,12 +98,12 @@ export const Movie = () => {
                             </p>
                         </div>
                     </div>
-                    {recommendations && (
+                    {recommendations ? (
                         <section>
                             <h3>You might also like…</h3>
                             <MovieCarousel movies={recommendations} />
                         </section>
-                    )}
+                    ) : null}
                 </div>
             </Layout>
         );
