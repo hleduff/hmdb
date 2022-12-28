@@ -2,8 +2,7 @@
 
 Web application that displays a lists of movies and the details page of the movies.
 
-It is written in JavaScript and [React.js](https://reactjs.org/),
-using [Redux](https://redux.js.org/) for state management.
+It is written in JavaScript and [React.js](https://reactjs.org/).
 
 It is powered by [The Movie Database API](https://developers.themoviedb.org/3).
 
