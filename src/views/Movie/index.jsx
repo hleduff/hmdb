@@ -80,7 +80,8 @@ export const Movie = () => {
                                 <b>Summary:</b> {data.overview}
                             </p>
                             <p className={styles.originalTitle}>
-                                <b>Original title:</b> <i>{data.original_title}</i>
+                                <b>Original title:</b>{' '}
+                                <i>{data.original_title || data.title}</i>
                             </p>
                             <p>
                                 <a
