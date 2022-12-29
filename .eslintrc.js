@@ -7,19 +7,16 @@ module.exports = {
         es6: true,
     },
     extends: [
-        'plugin:@typescript-eslint/recommended',
+        'eslint:recommended',
         'plugin:react/recommended',
-        'airbnb-base',
+        'plugin:@typescript-eslint/recommended',
+        'airbnb',
         'airbnb-typescript',
         'prettier',
     ],
-    parser: '@typescript-eslint/parser',
     parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
         ecmaVersion: 'latest',
-        project: './tsconfig.json',
+        project: ['tsconfig.json'],
         sourceType: 'module',
     },
     settings: {
@@ -33,7 +30,7 @@ module.exports = {
             },
         },
     },
-    plugins: ['react', 'simple-import-sort', 'import'],
+    plugins: ['@typescript-eslint', 'react', 'simple-import-sort', 'import'],
     rules: {
         'react/react-in-jsx-scope': 'off',
         'react/display-name': 'off',
@@ -84,5 +81,22 @@ module.exports = {
         ],
         'no-prototype-builtins': 'off',
         'no-await-in-loop': 'off',
+        '@typescript-eslint/explicit-member-accessibility': [
+            'error',
+            {
+                accessibility: 'no-public',
+            },
+        ],
+        '@typescript-eslint/lines-between-class-members': [
+            'error',
+            'always',
+            {
+                exceptAfterSingleLine: true,
+            },
+        ],
+        '@typescript-eslint/no-use-before-define': ['error'],
+        '@typescript-eslint/no-shadow': 'error',
+        '@typescript-eslint/space-before-function-paren': ['error', 'always'],
+        '@typescript-eslint/type-annotation-spacing': 'error',
     },
 };
