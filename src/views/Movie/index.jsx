@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 
 import { Layout, Loader, Message, MovieCarousel } from '../../components';
-import { useMovie, useMovieCredits, useRecommendations } from '../../hooks';
+import { useMovie } from '../../hooks';
 import {
     getImage,
     getMovieLength,
@@ -12,9 +12,7 @@ import styles from './style.module.css';
 
 export const Movie = () => {
     const { movieId } = useParams();
-    const { data, error, loaded } = useMovie(movieId);
-    const { data: credits } = useMovieCredits(movieId);
-    const { data: recommendations } = useRecommendations(movieId);
+    const { data: movie, error, loading } = useMovie(movieId);
 
     if (error) {
         return (
@@ -22,7 +20,7 @@ export const Movie = () => {
                 <Message isError={true} text={`Error: ${error.message}`} />
             </Layout>
         );
-    } else if (!loaded) {
+    } else if (loading) {
         return (
             <Layout>
                 <Loader />
@@ -39,53 +37,53 @@ export const Movie = () => {
                         <div className={styles.poster}>
                             <img
                                 className={styles.posterImg}
-                                src={getImage(data.poster_path)}
-                                alt={`Poster for ${data.title}`}
+                                src={getImage(movie.poster_path)}
+                                alt={`Poster for ${movie.title}`}
                             />
                         </div>
                         <div className={styles.info}>
                             <div className={styles.header}>
-                                <h2 className={styles.title}>{data.title}</h2>
+                                <h2 className={styles.title}>{movie.title}</h2>
                                 <p
                                     className={styles.rating}
                                     style={{
                                         backgroundColor: getRatingColor(
-                                            data.vote_average,
+                                            movie.vote_average,
                                         ),
                                     }}
                                 >
-                                    {Math.round(data.vote_average * 10) / 10}
+                                    {Math.round(movie.vote_average * 10) / 10}
                                 </p>
                             </div>
                             <ul className={styles.meta}>
-                                <li>{getMovieYear(data.release_date)}</li>
-                                <li>{getMovieLength(data.runtime)}</li>
+                                <li>{getMovieYear(movie.release_date)}</li>
+                                <li>{getMovieLength(movie.runtime)}</li>
                             </ul>
                             <ul className={styles.genres}>
-                                {data.genres.map((genre) => (
+                                {movie.genres.map((genre) => (
                                     <li key={genre.id}>{genre.name}</li>
                                 ))}
                             </ul>
-                            {credits ? (
+                            {movie?.credits?.crew ? (
                                 <p>
                                     <b>Director:</b>{' '}
                                     {
-                                        credits.crew?.find(
+                                        movie.credits.crew.find(
                                             (element) => element.job === 'Director',
                                         )?.name
                                     }
                                 </p>
                             ) : null}
                             <p>
-                                <b>Summary:</b> {data.overview}
+                                <b>Summary:</b> {movie.overview}
                             </p>
                             <p className={styles.originalTitle}>
                                 <b>Original title:</b>{' '}
-                                <i>{data.original_title || data.title}</i>
+                                <i>{movie.original_title || movie.title}</i>
                             </p>
                             <p>
                                 <a
-                                    href={`https://imdb.com/title/${data.imdb_id}`}
+                                    href={`https://imdb.com/title/${movie.imdb_id}`}
                                     title="Go to IMDb"
                                     target="_blank"
                                     rel="noreferrer"
@@ -99,10 +97,10 @@ export const Movie = () => {
                             </p>
                         </div>
                     </div>
-                    {recommendations ? (
+                    {movie?.recommendations ? (
                         <section>
                             <h3>You might also like…</h3>
-                            <MovieCarousel movies={recommendations} />
+                            <MovieCarousel movies={movie.recommendations.results} />
                         </section>
                     ) : null}
                 </div>
