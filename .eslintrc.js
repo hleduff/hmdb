@@ -6,9 +6,20 @@ module.exports = {
         amd: true,
         es6: true,
     },
-    extends: ['plugin:react/recommended', 'airbnb-base', 'prettier'],
+    extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+        'airbnb-base',
+        'airbnb-typescript',
+        'prettier',
+    ],
+    parser: '@typescript-eslint/parser',
     parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
         ecmaVersion: 'latest',
+        project: './tsconfig.json',
         sourceType: 'module',
     },
     settings: {
