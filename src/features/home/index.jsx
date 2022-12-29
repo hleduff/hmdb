@@ -1,4 +1,4 @@
-import { CardMovie, Layout, Loader, Message } from '../../components';
+import { Layout, Loader, Message, MovieCard } from '../../components';
 import { useGetPopularMoviesQuery } from '../api/apiSlice';
 import styles from './style.module.css';
 
@@ -17,7 +17,7 @@ export const Home = () => {
         content = <Loader />;
     } else if (isSuccess) {
         const movieList = movies.map((movie) => (
-            <CardMovie key={movie.id} movie={movie} />
+            <MovieCard key={movie.id} movie={movie} />
         ));
 
         content = <div className={styles.grid}>{movieList}</div>;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getImage } from '../../utils/utils';
 import styles from './style.module.css';
 
-export const CardMovie = ({ movie }) => (
+export const MovieCard = ({ movie }) => (
     <Link to={`/movie/${movie.id}`}>
         <div className={styles.card}>
             <img
@@ -19,6 +19,6 @@ export const CardMovie = ({ movie }) => (
     </Link>
 );
 
-CardMovie.propTypes = {
+MovieCard.propTypes = {
     movie: PropTypes.object,
 };

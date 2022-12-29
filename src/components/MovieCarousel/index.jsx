@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { A11y, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { CardMovie } from '../CardMovie';
+import { MovieCard } from '../MovieCard';
 
 export const MovieCarousel = ({ className, movies }) => (
     <Swiper
@@ -28,7 +28,7 @@ export const MovieCarousel = ({ className, movies }) => (
     >
         {movies.map((movie) => (
             <SwiperSlide key={movie.id}>
-                <CardMovie movie={movie} />
+                <MovieCard movie={movie} />
             </SwiperSlide>
         ))}
     </Swiper>
