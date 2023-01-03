@@ -11,7 +11,7 @@ specifiers:
     axios: ^1.2.2
     classnames: ^2.3.2
     eslint: ^8.30.0
-    eslint-config-airbnb-base: ^15.0.0
+    eslint-config-airbnb: ^19.0.4
     eslint-config-airbnb-typescript: ^17.0.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-import: ^2.26.0
@@ -52,7 +52,7 @@ devDependencies:
     '@typescript-eslint/parser': 5.47.1_lzzuuodtsqwxnvqeq4g4likcqa
     '@vitejs/plugin-react-swc': 3.0.1_vite@4.0.3
     eslint: 8.30.0
-    eslint-config-airbnb-base: 15.0.0_2lbwmhbr7bncddqbzzpg77o75m
+    eslint-config-airbnb: 19.0.4_j3uyvjk2vb2gkfzhvqukeu5rlq
     eslint-config-airbnb-typescript: 17.0.0_qipeoi3mvzxgzndpeo4r6kwevy
     eslint-config-prettier: 8.5.0_eslint@8.30.0
     eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
@@ -1501,6 +1501,29 @@ packages:
             eslint: 8.30.0
             eslint-config-airbnb-base: 15.0.0_2lbwmhbr7bncddqbzzpg77o75m
             eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
+        dev: true
+
+    /eslint-config-airbnb/19.0.4_j3uyvjk2vb2gkfzhvqukeu5rlq:
+        resolution:
+            {
+                integrity: sha512-T75QYQVQX57jiNgpF9r1KegMICE94VYwoFQyMGhrvc+lB8YF2E/M/PYDaQe1AJcWaEgqLE+ErXV1Og/+6Vyzew==,
+            }
+        engines: { node: ^10.12.0 || ^12.22.0 || ^14.17.0 || >=16.0.0 }
+        peerDependencies:
+            eslint: ^7.32.0 || ^8.2.0
+            eslint-plugin-import: ^2.25.3
+            eslint-plugin-jsx-a11y: ^6.5.1
+            eslint-plugin-react: ^7.28.0
+            eslint-plugin-react-hooks: ^4.3.0
+        dependencies:
+            eslint: 8.30.0
+            eslint-config-airbnb-base: 15.0.0_2lbwmhbr7bncddqbzzpg77o75m
+            eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
+            eslint-plugin-jsx-a11y: 6.6.1_eslint@8.30.0
+            eslint-plugin-react: 7.31.11_eslint@8.30.0
+            eslint-plugin-react-hooks: 4.6.0_eslint@8.30.0
+            object.assign: 4.1.4
+            object.entries: 1.1.6
         dev: true
 
     /eslint-config-prettier/8.5.0_eslint@8.30.0:

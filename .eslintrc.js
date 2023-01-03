@@ -12,14 +12,18 @@ module.exports = {
         ecmaVersion: 2021,
         project: ['tsconfig.json'],
     },
-    extends: ['plugin:react/recommended', 'airbnb-base', 'airbnb-typescript/base'],
+    extends: ['plugin:react/recommended', 'airbnb', 'airbnb-typescript', 'prettier'],
     settings: {
+        react: {
+            version: 'detect',
+        },
         'import/resolver': {
             node: {
                 extensions: ['.js', '.jsx', '.ts', '.tsx'],
             },
         },
     },
+    plugins: ['react', 'simple-import-sort', 'import'],
     rules: {
         'react/display-name': 'off',
         'no-console': 'warn',
