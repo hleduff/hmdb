@@ -4,7 +4,7 @@ import styles from './style.module.css';
 
 export const Home = () => {
     const {
-        data: movies = [],
+        data: movies,
         isLoading,
         isSuccess,
         isError,
@@ -16,11 +16,18 @@ export const Home = () => {
     if (isLoading) {
         content = <Loader />;
     } else if (isSuccess) {
-        const movieList = movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-        ));
-
-        content = <div className={styles.grid}>{movieList}</div>;
+        content = (
+            <div className={styles.grid}>
+                {movies.results.map((movie) => (
+                    <MovieCard
+                        key={movie.id}
+                        id={movie.id}
+                        poster_path={movie.poster_path}
+                        title={movie.title}
+                    />
+                ))}
+            </div>
+        );
     } else if (isError) {
         content = <Message isError={true} text={error.toString()} />;
     }

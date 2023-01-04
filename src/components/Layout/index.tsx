@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import PropTypes, { InferProps } from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 import { Header } from '../Header';
 import styles from './style.module.css';
@@ -9,7 +9,10 @@ const LayoutPropTypes = {
     children: PropTypes.node,
 };
 
-export const Layout = ({ className, children }: InferProps<typeof LayoutPropTypes>) => (
+export const Layout = ({
+    className,
+    children,
+}: PropTypes.InferProps<typeof LayoutPropTypes>) => (
     <div className={classNames(styles.root, className)}>
         <Header />
         <main className={styles.main}>{children}</main>
