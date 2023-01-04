@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { IMovieDetails } from '../../types';
 
+import { IMovieDetails } from '../../types';
 import { getImage } from '../../utils/utils';
+
 import styles from './style.module.css';
 
 export const MovieCard = ({

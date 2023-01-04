@@ -1,5 +1,6 @@
 import { Layout, Loader, Message, MovieCard } from '../../components';
 import { useGetPopularMoviesQuery } from '../api/apiSlice';
+
 import styles from './style.module.css';
 
 export const Home = () => {

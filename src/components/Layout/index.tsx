@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { ReactNode } from 'react';
 
 import { Header } from '../Header';
+
 import styles from './style.module.css';
 
 export const Layout = ({
