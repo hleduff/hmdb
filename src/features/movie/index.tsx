@@ -17,11 +17,20 @@ import styles from './style.module.css';
 export const Movie = () => {
     const { movieId } = useParams();
 
-    const { data: movie, isFetching, isSuccess } = useGetMovieQuery(movieId);
-    const { data: credits } = useGetMovieCreditsQuery(movieId);
-    const { data: recommendations } = useGetRecommendationsQuery(movieId);
+    const {
+        data: movie,
+        isFetching,
+        isSuccess,
+    } = useGetMovieQuery(movieId as string, { skip: !movieId });
+    const { data: credits } = useGetMovieCreditsQuery(movieId as string, {
+        skip: !movieId,
+    });
+    const { data: recommendations } = useGetRecommendationsQuery(movieId as string, {
+        skip: !movieId,
+    });
 
     let content;
+
     if (isFetching) {
         content = <Loader />;
     } else if (isSuccess) {
@@ -63,7 +72,7 @@ export const Movie = () => {
                             <p>
                                 <b>Director:</b>{' '}
                                 {
-                                    credits.crew?.find(
+                                    credits?.crew?.find(
                                         (element) => element.job === 'Director',
                                     )?.name
                                 }
@@ -92,10 +101,10 @@ export const Movie = () => {
                         </p>
                     </div>
                 </div>
-                {recommendations?.length ? (
+                {recommendations ? (
                     <section>
                         <h3>You might also like…</h3>
-                        <MovieCarousel movies={recommendations} />
+                        <MovieCarousel movies={recommendations.results} />
                     </section>
                 ) : null}
             </div>
