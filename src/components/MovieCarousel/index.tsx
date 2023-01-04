@@ -1,11 +1,14 @@
 import 'swiper/swiper.min.css';
 import 'swiper/swiper-bundle.min.css';
 
+import classNames from 'classnames';
 import { A11y, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { MovieCard } from '../MovieCard';
 import { IMovieDetails } from '../../types';
+
+import styles from './style.module.css';
 
 export const MovieCarousel = ({
     className = '',
@@ -27,7 +30,7 @@ export const MovieCarousel = ({
         ));
 
     return (
-        <div className={className ? className : ''}>
+        <div className={classNames(className, styles.carousel)}>
             <Swiper
                 modules={[Navigation, A11y]}
                 navigation

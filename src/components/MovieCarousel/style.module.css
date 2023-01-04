@@ -1,0 +1,24 @@
+.carousel :global(.swiper-slide) {
+    height: auto;
+}
+
+.carousel :global(.swiper-button-next),
+.carousel :global(.swiper-button-prev) {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+    margin-top: 0;
+    color: var(--white);
+}
+
+.carousel :global(.swiper-button-prev) {
+    left: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.carousel :global(.swiper-button-next) {
+    right: 0;
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+}
