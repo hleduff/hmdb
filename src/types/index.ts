@@ -6,7 +6,7 @@ export interface IMovie {
 
 export interface IMovieList {
     page: number;
-    results: IMovie[];
+    results: IMovieDetails[];
     total_pages: number;
     total_results: number;
 }

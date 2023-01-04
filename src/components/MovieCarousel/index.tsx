@@ -14,7 +14,7 @@ export const MovieCarousel = ({
     className = '',
     movies = [],
 }: {
-    className: string;
+    className?: string;
     movies: IMovieDetails[];
 }) => {
     const movieList =

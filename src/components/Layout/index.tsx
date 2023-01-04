@@ -1,18 +1,16 @@
 import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
+import { ReactNode } from 'react';
 
 import { Header } from '../Header';
 import styles from './style.module.css';
 
-const LayoutPropTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node,
-};
-
 export const Layout = ({
-    className,
+    className = '',
     children,
-}: PropTypes.InferProps<typeof LayoutPropTypes>) => (
+}: {
+    className?: string;
+    children: ReactNode;
+}) => (
     <div className={classNames(styles.root, className)}>
         <Header />
         <main className={styles.main}>{children}</main>
