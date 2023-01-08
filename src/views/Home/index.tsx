@@ -1,5 +1,5 @@
 import { Layout, Tabs, TabPanel } from '../../components';
-import { Popular, TopRated, Upcoming } from '../movies';
+import { Popular, TopRated, Upcoming } from '../../features/movies';
 
 export const Home = () => {
     return (

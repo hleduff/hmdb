@@ -1,7 +1,5 @@
-import { Loader, Message, MovieCard } from '../../components';
+import { Loader, Message, MovieCard, MovieGrid } from '../../components';
 import { useGetUpcomingMoviesQuery } from '../api/apiSlice';
-
-import styles from './style.module.css';
 
 export const Upcoming = () => {
     const {
@@ -33,5 +31,5 @@ export const Upcoming = () => {
         content = <Message isError={true} text={error.toString()} />;
     }
 
-    return <div className={styles.grid}>{content}</div>;
+    return <MovieGrid>{content}</MovieGrid>;
 };

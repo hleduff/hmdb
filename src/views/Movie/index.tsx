@@ -11,7 +11,7 @@ import {
     useGetMovieCreditsQuery,
     useGetMovieQuery,
     useGetRecommendationsQuery,
-} from '../api/apiSlice';
+} from '../../features/api/apiSlice';
 
 import styles from './style.module.css';
 
