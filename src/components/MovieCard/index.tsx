@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { IMovieDetails } from '../../types';
-import { getImage } from '../../utils/utils';
+import { getImage } from '../../utils';
 
 import styles from './style.module.css';
 

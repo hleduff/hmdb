@@ -6,7 +6,7 @@ import {
     getMovieLength,
     getMovieYear,
     getRatingColor,
-} from '../../utils/utils';
+} from '../../utils';
 import {
     useGetMovieCreditsQuery,
     useGetMovieQuery,
