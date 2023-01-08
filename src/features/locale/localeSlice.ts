@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-const DEFAULT_LOCALE = import.meta.env.DEFAULT_LOCALE as string;
+const DEFAULT_LOCALE = import.meta.env.VITE_DEFAULT_LOCALE as string;
 
 const origState: {
     locale: string;
