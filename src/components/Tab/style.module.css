@@ -1,0 +1,31 @@
+.tab {
+    cursor: pointer;
+    appearance: none;
+    background: transparent;
+    border: 0 none;
+    font-weight: 600;
+    transition: color .2s ease;
+}
+
+.tab:hover {
+    color: rgba(32, 224, 139, .8);
+}
+
+.tab:focus-visible {
+    color: rgba(32, 224, 139, .8);
+    outline: solid .2rem var(--main);
+}
+
+.tab:active {
+    color: rgba(32, 224, 139, .9);
+}
+
+.active {
+    color: var(--main);
+}
+
+@media screen and (min-width: 480px) {
+    .tab {
+        font-size: 2.4rem;
+    }
+}
