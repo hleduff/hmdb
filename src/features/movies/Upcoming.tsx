@@ -1,14 +1,17 @@
+import { useAppSelector } from '../../app/store';
 import { Loader, Message, MovieCard, MovieGrid } from '../../components';
 import { useGetUpcomingMoviesQuery } from '../api/apiSlice';
 
 export const Upcoming = () => {
+    const locale = useAppSelector((state) => state.locale.locale);
+
     const {
         data: movies,
         isLoading,
         isSuccess,
         isError,
         error,
-    } = useGetUpcomingMoviesQuery();
+    } = useGetUpcomingMoviesQuery(locale);
 
     let content;
 

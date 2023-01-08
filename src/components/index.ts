@@ -1,3 +1,4 @@
+export * from './CustomSelect';
 export * from './Header';
 export * from './Layout';
 export * from './Loader';

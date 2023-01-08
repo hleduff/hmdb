@@ -36,3 +36,8 @@ export interface IMovieDetails extends IMovie {
     runtime: number;
     vote_average: number;
 }
+
+export interface IIDRequest {
+    id: string;
+    locale: string;
+}

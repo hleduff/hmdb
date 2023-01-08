@@ -1,14 +1,17 @@
+import { useAppSelector } from '../../app/store';
 import { Loader, Message, MovieCard, MovieGrid } from '../../components';
 import { useGetPopularMoviesQuery } from '../api/apiSlice';
 
 export const Popular = () => {
+    const locale = useAppSelector((state) => state.locale.locale);
+
     const {
         data: movies,
         isLoading,
         isSuccess,
         isError,
         error,
-    } = useGetPopularMoviesQuery();
+    } = useGetPopularMoviesQuery(locale);
 
     let content;
 

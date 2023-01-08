@@ -1,14 +1,17 @@
+import { useAppSelector } from '../../app/store';
 import { Loader, Message, MovieCard, MovieGrid } from '../../components';
 import { useGetTopRatedMoviesQuery } from '../api/apiSlice';
 
 export const TopRated = () => {
+    const locale = useAppSelector((state) => state.locale.locale);
+
     const {
         data: movies,
         isLoading,
         isSuccess,
         isError,
         error,
-    } = useGetTopRatedMoviesQuery();
+    } = useGetTopRatedMoviesQuery(locale);
 
     let content;
 

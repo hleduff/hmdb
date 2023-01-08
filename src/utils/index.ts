@@ -29,3 +29,9 @@ export const getMovieLength = (duration: number) => {
     else if (minutes === 0) return `${hours}h`;
     else return `${hours}h ${minutes}m`;
 };
+
+export const getLanguage = (locale: string) => ({
+    FR: 'fr-FR',
+    ES: 'es-ES',
+    US: 'en-US',
+})[locale];

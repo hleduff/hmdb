@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 
+import { useAppSelector } from '../../app/store';
 import { Layout, Loader, MovieCarousel } from '../../components';
 import {
     getImage,
@@ -17,18 +18,24 @@ import styles from './style.module.css';
 
 export const Movie = () => {
     const { movieId } = useParams();
+    const locale = useAppSelector((state) => state.locale.locale);
 
     const {
         data: movie,
         isFetching,
         isSuccess,
-    } = useGetMovieQuery(movieId as string, { skip: !movieId });
-    const { data: credits } = useGetMovieCreditsQuery(movieId as string, {
-        skip: !movieId,
-    });
-    const { data: recommendations } = useGetRecommendationsQuery(movieId as string, {
-        skip: !movieId,
-    });
+    } = useGetMovieQuery({
+        id: movieId ? movieId : '',
+        locale: locale,
+    }, { skip: !movieId });
+    const { data: credits } = useGetMovieCreditsQuery({
+        id: movieId ? movieId : '',
+        locale: locale,
+    }, { skip: !movieId });
+    const { data: recommendations } = useGetRecommendationsQuery({
+        id: movieId ? movieId : '',
+        locale: locale,
+    }, { skip: !movieId });
 
     let content;
 

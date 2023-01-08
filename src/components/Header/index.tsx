@@ -1,3 +1,5 @@
+import { SelectCountry } from '../../features/locale/SelectCountry';
+
 import styles from './style.module.css';
 
 export const Header = () => (
@@ -5,5 +7,6 @@ export const Header = () => (
         <h1 className={styles.title}>
             HMD<span className={styles.highlight}>b</span>
         </h1>
+        <SelectCountry />
     </header>
 );
