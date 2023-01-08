@@ -92,7 +92,7 @@ export const Movie = () => {
                                 }
                             </p>
                         ) : null}
-                        <p>
+                        <p className="paragraph">
                             <b>Summary:</b> {movie.overview}
                         </p>
                         <p className={styles.originalTitle}>
