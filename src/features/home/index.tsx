@@ -1,42 +1,26 @@
-import { Layout, Loader, Message, MovieCard } from '../../components';
-import { useGetPopularMoviesQuery } from '../api/apiSlice';
-
-import styles from './style.module.css';
+import { Layout, Tabs, TabPanel } from '../../components';
+import { Popular, TopRated, Upcoming } from '../movies';
 
 export const Home = () => {
-    const {
-        data: movies,
-        isLoading,
-        isSuccess,
-        isError,
-        error,
-    } = useGetPopularMoviesQuery();
-
-    let content;
-
-    if (isLoading) {
-        content = <Loader />;
-    } else if (isSuccess) {
-        content = (
-            <div className={styles.grid}>
-                {movies.results.map((movie) => (
-                    <MovieCard
-                        key={movie.id}
-                        id={movie.id}
-                        poster_path={movie.poster_path}
-                        title={movie.title}
-                    />
-                ))}
-            </div>
-        );
-    } else if (isError) {
-        content = <Message isError={true} text={error.toString()} />;
-    }
-
     return (
         <Layout>
-            <h2>Popular movies</h2>
-            {content}
+            <Tabs>
+                <TabPanel title="Popular">
+                    <div>
+                        <Popular />
+                    </div>
+                </TabPanel>
+                <TabPanel title="Top Rated">
+                    <div>
+                        <TopRated />
+                    </div>
+                </TabPanel>
+                <TabPanel title="Upcoming">
+                    <div>
+                        <Upcoming />
+                    </div>
+                </TabPanel>
+            </Tabs>
         </Layout>
     );
 };

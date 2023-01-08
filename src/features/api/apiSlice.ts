@@ -17,6 +17,18 @@ export const apiSlice = createApi({
                 params: { api_key: API_KEY },
             }),
         }),
+        getTopRatedMovies: build.query<IMovieList, void>({
+            query: () => ({
+                url: '/movie/top_rated',
+                params: { api_key: API_KEY },
+            }),
+        }),
+        getUpcomingMovies: build.query<IMovieList, void>({
+            query: () => ({
+                url: '/movie/upcoming',
+                params: { api_key: API_KEY },
+            }),
+        }),
         getMovie: build.query<IMovieDetails, string>({
             query: (id) => ({
                 url: `/movie/${id}`,
@@ -43,4 +55,6 @@ export const {
     useGetMovieQuery,
     useGetPopularMoviesQuery,
     useGetRecommendationsQuery,
+    useGetTopRatedMoviesQuery,
+    useGetUpcomingMoviesQuery,
 } = apiSlice;

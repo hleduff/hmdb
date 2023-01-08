@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,900;1,400&display=swap');
 
 :root {
-    --main: #20e08b;
-    --green: #66cc32;
-    --yellow: #ffcc32;
-    --red: #ff0100;
-    --dark-grey: #1b2634;
-    --medium-grey: #243340;
-    --light-grey: #3a4956;
-    --neutral-grey: #999;
-    --white: #f9f9f9;
+    --main: rgb(32, 224, 139);
+    --green: rgb(102, 204, 50);
+    --yellow: rgb(255, 204, 50);
+    --red: rgb(255, 1, 0);
+    --dark-grey: rgb(27, 38, 52);
+    --medium-grey: rgb(36, 51, 64);
+    --light-grey: rgb(58, 73, 86);
+    --neutral-grey: rgb(153, 153, 153);
+    --white: rgb(249, 249, 249);
 
     --header-height: 6rem;
 
