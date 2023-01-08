@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { Home, Movie, NotFound } from './features';
+import { Home, Movie, NotFound } from './views';
 
 const router = createBrowserRouter([
     {
