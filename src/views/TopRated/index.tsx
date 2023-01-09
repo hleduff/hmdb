@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet';
+
 import { useAppSelector } from '../../app/store';
 import { Layout, Loader, Message, MovieCard, MovieGrid } from '../../components';
 import { useGetTopRatedMoviesQuery } from '../../features/api/apiSlice';
@@ -20,6 +22,9 @@ export const TopRated = () => {
     } else if (isSuccess) {
         content = (
             <>
+                <Helmet>
+                    <title>Top rated movies - HMDb</title>
+                </Helmet>
                 {movies.results.map((movie) => (
                     <MovieCard
                         key={movie.id}
