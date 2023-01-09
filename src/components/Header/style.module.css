@@ -19,6 +19,11 @@
     font-weight: 800;
 }
 
+.title a {
+    color: initial;
+    text-decoration: none;
+}
+
 .highlight {
     color: var(--main);
     font-weight: 600;
