@@ -37,9 +37,9 @@ $ npm i && npm run dev
 ### User features
 
 - a home page which shows the popular movies list by default. A Navigation allows the user to show the Top Rated or Upcoming movies instead.
-- click on a movie from the home page or movie carousel and you are directed to the Movie page, which shows the movie details:
-    • poster, title, runtime, release year, genres, director, summary, original title, IMDb link, JustWatch link
-    • a carousel with a list of recommended related movies
+- click on a movie from the home page or movie carousel and you are directed to the Movie page, which shows the movie details:<br>
+    • poster, title, runtime, release year, genres, director, summary, original title, IMDb link, JustWatch link<br>
+    • a carousel with a list of recommended related movies<br>
 - a region switcher changes the language and region for every API query. This means you can see the movie info in the language of your choice between FR, ES and EN.
 
 ### Development features
