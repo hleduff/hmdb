@@ -111,3 +111,9 @@
         width: 20vw;
     }
 }
+
+@media (prefers-color-scheme: light) {
+    .genres li {
+        border-color: var(--medium-grey);
+    }
+}

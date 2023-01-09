@@ -34,12 +34,12 @@ body {
 
 a {
     color: var(--white);
-    text-decoration: inherit;
+    text-decoration: underline;
     transition: color 200ms ease;
 }
 
 a:hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(249, 249, 249, 0.7);
 }
 
 b,
@@ -67,7 +67,12 @@ ul {
         color: var(--medium-grey);
         background-color: var(--white);
     }
+
+    a {
+        color: var(--medium-grey);
+    }
+
     a:hover {
-        color: rgba(36, 51, 64, 0.9);
+        color: rgba(36, 51, 64, 0.7);
     }
 }
