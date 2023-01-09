@@ -66,3 +66,5 @@ The point is not to make a clone of IMDb, but this project could have many more 
 - add genre navigation from the home page
 - add search
 - clicking on the movie poster on the movie page to see the trailers and image gallery
+- add a toggle dark/light mode switch
+- work on accessibility (check color contrast, touch area size for interactive elements)
