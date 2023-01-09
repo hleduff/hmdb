@@ -1,4 +1,10 @@
-.tab {
+.nav {
+    margin: 2.4rem 0;
+    display: flex;
+    gap: 1.6rem;
+}
+
+.link {
     cursor: pointer;
     appearance: none;
     background: transparent;
@@ -7,16 +13,16 @@
     transition: color .2s ease;
 }
 
-.tab:hover {
+.link:hover {
     color: rgba(32, 224, 139, .8);
 }
 
-.tab:focus-visible {
+.link:focus-visible {
     color: rgba(32, 224, 139, .8);
     outline: solid .2rem var(--main);
 }
 
-.tab:active {
+.link:active {
     color: rgba(32, 224, 139, .9);
 }
 
@@ -25,7 +31,7 @@
 }
 
 @media screen and (min-width: 480px) {
-    .tab {
+    .link {
         font-size: 2.4rem;
     }
 }

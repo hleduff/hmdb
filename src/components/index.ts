@@ -6,6 +6,4 @@ export * from './Message';
 export * from './MovieCard';
 export * from './MovieCarousel';
 export * from './MovieGrid';
-export * from './Tab';
-export * from './TabPanel';
-export * from './Tabs';
+export * from './MovieNav';

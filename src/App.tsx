@@ -1,16 +1,28 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
-import { Home, Movie, NotFound } from './views';
+import { Movie, NotFound, Popular, TopRated, Upcoming } from './views';
 
 const router = createBrowserRouter([
     {
-        path: '/',
-        element: <Home />,
-        errorElement: <NotFound />,
+        path: '/popular',
+        element: <Popular />,
+    },
+    {
+        path: '/toprated',
+        element: <TopRated />,
+    },
+    {
+        path: '/upcoming',
+        element: <Upcoming />,
     },
     {
         path: 'movie/:movieId',
         element: <Movie />,
+    },
+    {
+        path: '/',
+        element: <Navigate to="/popular" replace />,
+        errorElement: <NotFound />,
     },
 ]);
 

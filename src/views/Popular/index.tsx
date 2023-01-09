@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../app/store';
-import { Loader, Message, MovieCard, MovieGrid } from '../../components';
-import { useGetPopularMoviesQuery } from '../api/apiSlice';
+import { Layout, Loader, Message, MovieCard, MovieGrid } from '../../components';
+import { useGetPopularMoviesQuery } from '../../features/api/apiSlice';
 
 export const Popular = () => {
     const locale = useAppSelector((state) => state.locale.locale);
@@ -34,5 +34,5 @@ export const Popular = () => {
         content = <Message isError={true} text={error.toString()} />;
     }
 
-    return <MovieGrid>{content}</MovieGrid>;
+    return <Layout><MovieGrid>{content}</MovieGrid></Layout>;
 };
