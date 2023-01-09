@@ -1,9 +1,9 @@
-.carousel :global(.swiper-slide) {
+:global(.swiper-slide) {
     height: auto;
 }
 
-.carousel :global(.swiper-button-next),
-.carousel :global(.swiper-button-prev) {
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
     top: 0;
     bottom: 0;
     height: 100%;
@@ -13,12 +13,17 @@
     color: var(--white);
 }
 
-.carousel :global(.swiper-button-prev) {
+:global(.swiper-button-prev) {
     left: 0;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-.carousel :global(.swiper-button-next) {
+:global(.swiper-button-next) {
     right: 0;
     background: linear-gradient(-90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+:global(.swiper-button-prev.swiper-button-disabled),
+:global(.swiper-button-next.swiper-button-disabled) {
+    opacity: 0;
 }
