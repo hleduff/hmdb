@@ -10,7 +10,7 @@ export const MovieCard = ({
     poster_path = '',
     title = '',
 }: Pick<IMovieDetails, 'id' | 'poster_path' | 'title'>) => (
-    <Link to={`/movie/${id}`}>
+    <Link to={`/movie/${id}`} className={styles.link}>
         <div className={styles.card}>
             <img
                 className={styles.poster}

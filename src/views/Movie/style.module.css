@@ -85,6 +85,10 @@
     gap: 1.6rem;
 }
 
+.links img {
+    display: block;
+}
+
 @media (max-width: 479px) {
     .movie {
         flex-direction: column;

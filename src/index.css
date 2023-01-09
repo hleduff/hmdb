@@ -42,6 +42,10 @@ a:hover {
     color: rgba(249, 249, 249, 0.7);
 }
 
+:focus-visible {
+    outline-color: var(--main);
+}
+
 b,
 strong {
     font-weight: 600;
