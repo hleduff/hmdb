@@ -1,4 +1,4 @@
-export interface IMovie {
+interface IMovie {
     id: number;
     poster_path: string;
     title: string;
@@ -11,7 +11,7 @@ export interface IMovieList {
     total_results: number;
 }
 
-export interface ICrewMember {
+interface ICrewMember {
     id: number;
     job: string;
     name: string;
@@ -22,7 +22,7 @@ export interface ICredits {
     crew: ICrewMember[];
 }
 
-export interface IGenre {
+interface IGenre {
     id: number;
     name: string;
 }
@@ -40,4 +40,13 @@ export interface IMovieDetails extends IMovie {
 export interface IIDRequest {
     id: string;
     locale: string;
+}
+
+interface IWatchRegion {
+    link: string;
+}
+
+export interface IWatchProviders {
+    id: string;
+    results: IWatchRegion[];
 }

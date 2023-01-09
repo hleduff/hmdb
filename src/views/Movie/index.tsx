@@ -3,16 +3,17 @@ import { Link, useParams } from 'react-router-dom';
 import { useAppSelector } from '../../app/store';
 import { Layout, Loader, MovieCarousel } from '../../components';
 import {
+    useGetMovieCreditsQuery,
+    useGetMovieQuery,
+    useGetRecommendationsQuery,
+    useGetWatchProvidersQuery,
+} from '../../features/api/apiSlice';
+import {
     getImage,
     getMovieLength,
     getMovieYear,
     getRatingColor,
 } from '../../utils';
-import {
-    useGetMovieCreditsQuery,
-    useGetMovieQuery,
-    useGetRecommendationsQuery,
-} from '../../features/api/apiSlice';
 
 import styles from './style.module.css';
 
@@ -20,22 +21,21 @@ export const Movie = () => {
     const { movieId } = useParams();
     const locale = useAppSelector((state) => state.locale.locale);
 
+    const queryParams = {
+        id: movieId ? movieId : '',
+        locale: locale,
+    };
+    const skip = { skip: !movieId };
     const {
         data: movie,
         isFetching,
         isSuccess,
-    } = useGetMovieQuery({
-        id: movieId ? movieId : '',
-        locale: locale,
-    }, { skip: !movieId });
-    const { data: credits } = useGetMovieCreditsQuery({
-        id: movieId ? movieId : '',
-        locale: locale,
-    }, { skip: !movieId });
-    const { data: recommendations } = useGetRecommendationsQuery({
-        id: movieId ? movieId : '',
-        locale: locale,
-    }, { skip: !movieId });
+    } = useGetMovieQuery(queryParams, skip);
+    const { data: credits } = useGetMovieCreditsQuery(queryParams, skip);
+    const { data: watchProviders } = useGetWatchProvidersQuery(queryParams, skip);
+    const { data: recommendations } = useGetRecommendationsQuery(queryParams, skip);
+
+    const tmdbLink = watchProviders?.results ? watchProviders?.results[locale as unknown as number]?.link : '';
 
     let content;
 
@@ -106,20 +106,40 @@ export const Movie = () => {
                             <b>Original title:</b>{' '}
                             <i>{movie.original_title || movie.title}</i>
                         </p>
-                        <p>
-                            <a
-                                href={`https://imdb.com/title/${movie.imdb_id}`}
-                                title="Go to IMDb"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <img
-                                    src="https://ia.media-imdb.com/images/M/MV5BMTczNjM0NDY0Ml5BMl5BcG5nXkFtZTgwMTk1MzQ2OTE@._V1_.png"
-                                    width="32px"
-                                    alt="IMDb"
-                                />
-                            </a>
-                        </p>
+                        <ul className={styles.links}>
+                            {movie.imdb_id && (
+                                <li>
+                                    <a
+                                        href={`https://imdb.com/title/${movie.imdb_id}`}
+                                        title="Go to this movie's page on the Internet Movie Database"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        <img
+                                            src="https://ia.media-imdb.com/images/M/MV5BMTczNjM0NDY0Ml5BMl5BcG5nXkFtZTgwMTk1MzQ2OTE@._V1_.png"
+                                            width="32px"
+                                            alt="IMDb"
+                                        />
+                                    </a>
+                                </li>
+                            )}
+                            {tmdbLink && (
+                                <li>
+                                    <a
+                                        href={tmdbLink}
+                                        title="See JustWatch options on the TMDB website"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        <img
+                                            src="https://www.justwatch.com/appassets/img/logo/JustWatch-logo-large.webp"
+                                            width="120px"
+                                            alt="JustWatch"
+                                        />
+                                    </a>
+                                </li>
+                            )}
+                        </ul>
                     </div>
                 </div>
                 {recommendations ? (

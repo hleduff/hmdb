@@ -79,6 +79,12 @@
     margin-right: 0.8rem;
 }
 
+.links {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
 @media (max-width: 479px) {
     .movie {
         flex-direction: column;

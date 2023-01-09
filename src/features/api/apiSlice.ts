@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import type { ICredits, IIDRequest, IMovieDetails, IMovieList } from '../../types';
+import type { ICredits, IIDRequest, IMovieDetails, IMovieList, IWatchProviders } from '../../types';
 import { getLanguage } from '../../utils';
 
 const URL_API = import.meta.env.VITE_URL_API as string;
@@ -76,6 +76,16 @@ export const apiSlice = createApi({
                 },
             }),
         }),
+        getWatchProviders: build.query<IWatchProviders, IIDRequest>({
+            query: ({ id, locale }) => ({
+                url: `/movie/${id}/watch/providers`,
+                params: {
+                    ...defaultParams,
+                    region: locale,
+                    language: getLanguage(locale),
+                },
+            }),
+        }),
     }),
 });
 
@@ -85,5 +95,6 @@ export const {
     useGetPopularMoviesQuery,
     useGetRecommendationsQuery,
     useGetTopRatedMoviesQuery,
+    useGetWatchProvidersQuery,
     useGetUpcomingMoviesQuery,
 } = apiSlice;
