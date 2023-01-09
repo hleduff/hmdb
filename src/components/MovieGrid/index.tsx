@@ -12,6 +12,6 @@ export const MovieGrid = ({
 }) => (
     <>
         <MovieNav />
-        <div className={styles.grid}>{children}</div>
+        <ul className={styles.grid}>{children}</ul>
     </>
 );

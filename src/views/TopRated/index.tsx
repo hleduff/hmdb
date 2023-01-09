@@ -26,12 +26,14 @@ export const TopRated = () => {
                     <title>Top rated movies - HMDb</title>
                 </Helmet>
                 {movies.results.map((movie) => (
-                    <MovieCard
-                        key={movie.id}
-                        id={movie.id}
-                        poster_path={movie.poster_path}
-                        title={movie.title}
-                    />
+                    <li>
+                        <MovieCard
+                            key={movie.id}
+                            id={movie.id}
+                            poster_path={movie.poster_path}
+                            title={movie.title}
+                        />
+                    </li>
                 ))}
             </>
         );
