@@ -26,9 +26,8 @@ export const Popular = () => {
                     <title>Popular movies - HMDb</title>
                 </Helmet>
                 {movies.results.map((movie) => (
-                    <li>
+                    <li key={movie.id}>
                         <MovieCard
-                            key={movie.id}
                             id={movie.id}
                             poster_path={movie.poster_path}
                             title={movie.title}
